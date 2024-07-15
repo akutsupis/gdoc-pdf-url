@@ -26,9 +26,14 @@ Short.io was used for their generous free tier. Other tinyurl services, such as 
 - Press Control-S or use the floppy disk icon to save Code.gs.
 - In the dropdown menu at the top of Code.gs, select UpdatePDF and click "Run."
 - You will be prompted to allow the script permission to access, modify, and delete your documents. It is safe to allow this script to access your documents.
-**At the bottom of your screen, two URLs will be displayed. Those are your "permanent" access URLs. Add them to your website.
+- The script will run.
+- At the bottom of your screen, two URLs will be displayed. Those are your "permanent" access URLs. Test them, then add them to your website.
+
 ### Step 3: 
+
+- Each time you want to "push" your changes from your Google Doc to your website, you will need to open your Google Doc, click on **Custom PDF Menu**, and click "**Update PDF**."
+
 **Optional** You can set up a trigger to update the document once per day or once per week so that no one needs to manually take an action, and the website's PDFs will always stay up to date.
-By default, each time you want to "push" your changes from your Google Doc to your website, you will need to open your Google Doc, click on **Custom PDF Menu**, and click "**Update PDF**."
+NOTE: The script creates a NEW PDF every time it is run, and moves the old PDF to the trash. The trash does take up space in your Google Drive account. If you were to run this every minute, you may completely fill your Google Drive with trashed PDFs. Don't do this.
 
 Enjoy!
