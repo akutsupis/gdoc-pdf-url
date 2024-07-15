@@ -1,11 +1,11 @@
 var docId = "YOUR-DOC-ID"; // Replace with your Google Doc ID
 var pdfFolderId = "YOUR-FOLDER-ID"; // Replace with your PDF folder ID
 var shortIoApiToken = "YOUR-PRIVATE-KEY"; // Replace with your Short.io API key
-var shortIoDomain = "YOUR-SHORTIO-DOMAIN"; // Replace with your Short.io domain (from the response). Ex: fywl.short.gy
+var shortIoDomain = "YOUR-SHORTIO-DOMAIN"; // Replace with your Short.io domain. Ex: fywl.short.gy
 
-// These are the desired custom aliases for each type of link
-var shortIoAliasPreview = "CUSTOM-ALIAS-preview"; // Replace with your desired custom alias for preview / embed
-var shortIoAliasDownload = "CUSTOM-ALIAS-download"; // Replace with your desired custom alias for download
+// Desired custom aliases for each type of link
+var shortIoAliasPreview = "akutsupis-resume-preview"; // Replace with your desired custom alias for preview
+var shortIoAliasDownload = "akutsupis-resume-download"; // Replace with your desired custom alias for download
 
 function onOpen() {
   var ui = DocumentApp.getUi();
@@ -50,6 +50,7 @@ function updatePDF() {
   return getShortIoUrl(shortIoAliasPreview), getShortIoUrl(shortIoAliasDownload);
 }
 
+// Generate base urls to be posted to Short.io
 function getPreviewUrl(fileId) {
   return "https://drive.google.com/file/d/" + fileId + "/preview";
 }
@@ -58,6 +59,7 @@ function getDownloadUrl(fileId) {
   return "https://drive.google.com/uc?export=download&id=" + fileId;
 }
 
+// Update the shortlinks
 function updateShortIoUrl(longUrl, alias) {
   var existingLinkId = getExistingShortIoLinkId(shortIoDomain, alias);
 
@@ -73,7 +75,7 @@ function updateShortIoUrl(longUrl, alias) {
     var updateUrl = `https://api.short.io/links/${existingLinkId}`;
 
     var updateOptions = {
-      "method": "post", // Correct method for updating
+      "method": "post",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": shortIoApiToken
@@ -131,6 +133,7 @@ function updateShortIoUrl(longUrl, alias) {
   }
 }
 
+// URLs on Short.io must be updated using a Link ID. This function fetches that ID.
 function getExistingShortIoLinkId(domain, path) {
   var url = `https://api.short.io/links/expand?domain=${encodeURIComponent(domain)}&path=${encodeURIComponent(path)}`;
   
@@ -147,8 +150,8 @@ function getExistingShortIoLinkId(domain, path) {
     var response = UrlFetchApp.fetch(url, options);
     var result = JSON.parse(response.getContentText());
 
-    Logger.log(`Response status code: ${response.getResponseCode()}`);
-    Logger.log(`Response content: ${response.getContentText()}`);
+    Logger.log(`Response status code: ${response.getResponseCode()},\nResponse text ${response.getContentText()}`);
+    //Logger.log(`Response content: ${response.getContentText()}`);
 
     if (response.getResponseCode() === 200 && result && result.idString) {
       Logger.log(`Found existing Short.io link with ID: ${result.idString}`);
