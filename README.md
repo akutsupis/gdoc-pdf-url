@@ -1,11 +1,11 @@
 # gdoc-pdf-url
-Google Doc to PDF to static URL Conversion Script
+Google Doc to PDF to static URL Script
 
-Useful for a situation where you have a Google Doc that you update often, that you want to host online as a PDF. Typically, that requires creating a PDF version, then updating a shortlink or your host URL to point to the new PDF URL.
+This tool is useful for a situation where you have a Google Doc that you update often, that you want to host online as a PDF. Typically, that reqrires creating a PDF version manually in Google Drive, changing the format using the ID to point to the desired variant (ie /preview or /view or /download), then updating a shortlink or your host URL to point to the new PDF URL. It gets even more complicated when you want both an embedded PDF and a download link, which requires a user to repeat part of that process twice.
 
-This tool automates that process. It creates a new menu in your Google Doc. When you click "Update PDF" in that menu, the script automatically creates the PDF and updates the URL. That way, you can just embed your URLs on your hosting site, and they'll automatically update to point to your newest document version.
+This tool automates that process entirely. It creates a new menu in your Google Doc. When you click "Update PDF" in that menu, the script automatically creates the PDF and updates shortURLs for both embedding and downloading that PDF. That way, you can just embed your short URLs on your hosting site or wherever they are shared online, and they will automatically update to point to your newest document version.
 
-Short.io was used for their generous free tier. Other tinyurl services, such as bit.ly or tinyurl offer similar features, but they don't allow you to update your url's destination for free via API. I would highly suggest using Short.io, though you can adapt this code as needed if you choose to use a different service.
+Short.io was used for their generous free tier. Other url shortening services such as bit.ly or tinyurl offer similar features, but they don't allow you to update your url's destination for free via API. I would highly suggest using Short.io, though you can adapt this code as needed if you choose to use a different service.
 
 Example use cases: 
 - You have a portfolio on the web and want to keep it in sync with your resume.
