@@ -2,7 +2,7 @@
 Google Doc to PDF to static URL Script
 
 >[!Note]
->Google Docs hsa a "Publish to Web" feature built-in which achieves the same result with a lot less work. I'm leaving the code for this up because it might still be useful to someone for a reason I haven't considered.
+>Google Docs has a "Publish to Web" feature built-in which achieves the same result with a lot less work. I'm leaving the code for this up because it might still be useful to someone for a reason I haven't considered.
 
 This tool is useful for a situation where you have a Google Doc that you update often, that you want to host online as a PDF. Typically, that requires creating a PDF version manually in Google Drive, changing the format using the ID to point to the desired variant (ie /preview or /view or /download), then updating a shortlink or your host URL to point to the new PDF URL. It gets even more complicated when you want both an embedded PDF and a download link, which requires a user to repeat part of that process twice.
 
